@@ -1,36 +1,24 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<!-- Main Layout -->
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navbar -->
+    <header class="bg-black text-white">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <a href="/" class="text-2xl font-bold">Moto Pulse</a>
+            <nav>
+                <a href="/products" class="px-4 hover:underline">Products</a>
+                <a href="/about" class="px-4 hover:underline">About</a>
+                <a href="/contact" class="px-4 hover:underline">Contact</a>
+                <a href="/login" class="px-4 bg-red-600 rounded hover:bg-red-700 py-2">Login</a>
+            </nav>
         </div>
-    </body>
-</html>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto my-8">
+        {{ $slot }}
+    </main>
+
+    <!-- Include Footer Component -->
+    <x-footer />
+</body>
