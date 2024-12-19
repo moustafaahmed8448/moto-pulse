@@ -18,13 +18,22 @@
         <header class="bg-black text-white bg-opacity-80">
             <div class="container mx-auto flex justify-between items-center py-4 px-6">
                 <a href="/" class="text-2xl font-bold">Seif Online Store</a>
-                <nav>
+                <nav class="flex items-center">
                     <a href="/" class="px-4 hover:underline">Home</a>
                     <a href="/products" class="px-4 hover:underline">Products</a>
                     <a href="/about" class="px-4 hover:underline">About</a>
                     <a href="/contact" class="px-4 hover:underline">Contact</a>
+
+                    <!-- Check if the user is authenticated -->
+                    @auth
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Logout</button>
+                    </form>
+                    @endauth
                 </nav>
             </div>
+
         </header>
 
         <!-- Main Content -->

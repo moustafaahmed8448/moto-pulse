@@ -6,9 +6,9 @@
         <div class="bg-white rounded-lg shadow hover:shadow-2xl hover:scale-105 transform transition-all duration-300">
             <!-- Image Section -->
             @if ($product->images->isNotEmpty())
-            <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" alt="{{ $product->name }}" class="w-full h-48 object-cover rounded-t">
+            <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" alt="{{ $product->name }}" class="w-full h-[400px] object-contain rounded-t">
             @else
-            <img src="{{ asset('images/default-product.jpg') }}" alt="Default Image" class="w-full h-48 object-cover rounded-t"> <!-- Default Image -->
+            <img src="{{ asset('images/default-product.jpg') }}" alt="Default Image" class="w-full h-[400px] object-contain rounded-t"> <!-- Default Image -->
             @endif
             <!-- Product Details -->
             <div class="p-4 group">
